@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="RecipeDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
+  <EntityContainer Name="RecipeDatabaseModelStoreContainer">
+    <EntitySet Name="ingredients" EntityType="RecipeDatabaseModel.Store.ingredients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="recipes" EntityType="RecipeDatabaseModel.Store.recipes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="recipe_ingredients" EntityType="RecipeDatabaseModel.Store.recipe_ingredients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="RecipeDatabaseModel.Store.Members" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="ingredients">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="name" Nullable="true" MaxLength="255" Type="varchar" />
+    <Property Name="MemberId" Nullable="true" Type="int" />
+  </EntityType>
+  <EntityType Name="recipes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="name" Nullable="true" MaxLength="255" Type="varchar" />
+    <Property Name="submitted_by" Nullable="true" MaxLength="100" Type="varchar" />
+    <Property Name="category" Nullable="true" MaxLength="255" Type="varchar" />
+    <Property Name="cooking_time" Nullable="true" MaxLength="100" Type="varchar" />
+    <Property Name="servings" Nullable="true" MaxLength="255" Type="varchar" />
+    <Property Name="Description" Nullable="true" MaxLength="255" Type="varchar" />
+    <Property Name="MemberId" Nullable="true" Type="int" />
+  </EntityType>
+  <EntityType Name="recipe_ingredients">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="recipe_id" Nullable="true" Type="int" />
+    <Property Name="ingredient_id" Nullable="true" Type="int" />
+    <Property Name="unit" Nullable="true" MaxLength="100" Type="varchar" />
+    <Property Name="quantity" Nullable="true" Type="int" />
+    <Property Name="MemberId" Nullable="true" Type="int" />
+    <Property Name="name" Nullable="false" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="UserName" Nullable="false" MaxLength="500" Type="nvarchar" />
+    <Property Name="Password" Nullable="true" MaxLength="1000" Type="nvarchar" />
+    <Property Name="IsActive" Nullable="true" Type="bit" />
+    <Property Name="CreatedOn" Nullable="true" Type="datetime" />
+    <Property Name="UpdatedOn" Nullable="true" Type="datetime" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RecipeDatabaseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RecipeDatabaseEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ingredients" EntityType="RecipeDatabaseModel.ingredient" />
+          <EntitySet Name="recipes" EntityType="RecipeDatabaseModel.recipe" />
+          <EntitySet Name="recipe_ingredients" EntityType="RecipeDatabaseModel.recipe_ingredients" />
+          <EntitySet Name="Members" EntityType="RecipeDatabaseModel.Member" />
+        </EntityContainer>
+        <EntityType Name="ingredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="MemberId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="recipe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="submitted_by" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="category" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="cooking_time" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="servings" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="MemberId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="recipe_ingredients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="recipe_id" Type="Int32" />
+          <Property Name="ingredient_id" Type="Int32" />
+          <Property Name="unit" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="MemberId" Type="Int32" />
+          <Property Name="name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RecipeDatabaseModelStoreContainer" CdmEntityContainer="RecipeDatabaseEntities">
+    <EntitySetMapping Name="ingredients">
+      <EntityTypeMapping TypeName="IsTypeOf(RecipeDatabaseModel.ingredient)">
+        <MappingFragment StoreEntitySet="ingredients">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recipes">
+      <EntityTypeMapping TypeName="IsTypeOf(RecipeDatabaseModel.recipe)">
+        <MappingFragment StoreEntitySet="recipes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="submitted_by" ColumnName="submitted_by" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="cooking_time" ColumnName="cooking_time" />
+          <ScalarProperty Name="servings" ColumnName="servings" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recipe_ingredients">
+      <EntityTypeMapping TypeName="IsTypeOf(RecipeDatabaseModel.recipe_ingredients)">
+        <MappingFragment StoreEntitySet="recipe_ingredients">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="recipe_id" ColumnName="recipe_id" />
+          <ScalarProperty Name="ingredient_id" ColumnName="ingredient_id" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="IsTypeOf(RecipeDatabaseModel.Member)">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Paytone+One"/>
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <div id="content">
+                   
+                    <div id="header">
+                        Recipe Book
+                    </div>
+                    <div id="Div1">
+
+                        <asp:Image ID="Image2" runat="server" ImageUrl="~/image/MyRecipe_02.png" />
+                 <%if (gblBlnIsMemberLogin) {%>
+                    <span style="float:left;color:red;font-weight:bold;font-size:18px;">Welcome, <%=MemberUserName %></span>
+                <%} %>
+
+            <%if (!gblBlnIsMemberLogin)
+                        { //Show Register & Login link only if member is not logged in.  %>
+                    <a id="signIn" href="SignIn.aspx"  ><b><span style="color:white;text-decoration:none;">Log In</span></b></a> &nbsp&nbsp&nbsp&nbsp&nbsp
+                     <a id="joinUs" href="Register.aspx"  ><b><span style="color:white;text-decoration:none;">Sign Up</span></b></a>
+            <% } %>
+            <%--<asp:ImageButton ID="SignIn" runat="server" ImageUrl="~/image/MyRecipe_03.png" />--%>
+           <%-- <asp:ImageButton ID="JoinUs" runat="server" ImageUrl="~/image/MyRecipe_04.png" />--%>
+            <%if (gblBlnIsMemberLogin)
+                        { %>
+                     <a href="SignIn.aspx"><span style="float:right;color:white;font-weight:bold;font-size:18px;">LOGOUT</span></a>
+                    <%} %>
+                    
+                    <div id="Buttons">
+                         
+                       <!-- <asp:Image ID="Image9" runat="server" ImageUrl="~/image/MyRecipe_12.png" />-->
+                        &nbsp&nbsp&nbsp <a id="Home" href="Default.aspx"><b>Home</b></a>
+                        &nbsp&nbsp&nbsp
+            <a id="Recipe" href="Recipe.aspx"><b>Recipes</b></a>
+                        &nbsp&nbsp&nbsp
+                           <%if (gblBlnIsMemberLogin)
+                        { //Show Add Recipe link only if member is logged in.%>
+                    <a id="AddRecipe" href="AddRecipe.aspx" ><b>Add Recipe</b></a>&nbsp&nbsp&nbsp
+            <%} %>
+                        
+            <a id="Search" href="Search.aspx"><b>Search</b></a>
+
+                    </div>
+                    
+                </div>
+                 
+            </asp:ContentPlaceHolder>
+            <div id="mainContent">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="footerCPH" runat="server">
+                    <div id="footer">
+                        <hr size="5" color="red" />
+                        Copyright&copy; 2017 Centennial College | <em>Rudra Pandya | 300899877</em>
+                        <br />
+                        <em>All rights reserved.</em>
+                    </div>
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿body {
+    background-image:url(image/background.jpg);
+    background-repeat:no-repeat;
+    background-position-x:center;
+    background-size:cover;
+    background-attachment: fixed;
+    
+}
+
+#header {
+    text-shadow: 3px 2px #000000;
+    color: red;
+    font-family: Paytone One;
+    font-size: 90px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    /*line-height: 55.2px;*/
+    width: 600px;
+    margin-left: auto;
+    
+    margin-right: auto;
+}
+#content,#mainContent {
+width:1040px;
+background-color:black;
+color:wheat;
+margin-left:auto;
+margin-right:auto;
+}
+#Buttons {
+background-color:rgb(254, 0, 0);
+font-size:larger;
+margin-bottom:auto;
+margin-top:auto;
+
+}
+#Home,#Recipe,#AddRecipe,#Search {
+    font-family:Arial;
+    color:white;
+    text-decoration:none;
+    
+}
+
+
+#multiRecipe {
+     font-size:20px;
+    font-family:Arial;
+    color:rgb(254, 0, 0);
+    text-decoration:none;
+}
+
+#mainPage {
+    margin-left: 0px;
+    margin-right: auto;
+    margin-top:25px;
+    bottom: 300px;
+    background-color: rgba(0,0,0,0.7);
+    width: 1030px;
+    /*border-radius: 1cm;*/
+    
+    font-family:Arial;
+    color:rgb(254, 0, 0);
+    text-align:left;
+   padding-left:10px;
+}
+#mainContent1 {
+    width:600px;
+   color:white;
+   background-color:black;
+}
+#image {
+    width:150px;
+
+}
+#recipesMain, #singleRecipe .container {
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 300px;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 1000px;
+    /*border-radius: 1cm;*/
+    font-family: Arial;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding-left: 10px;
+}
+.foodHeadings {
+    font-size: 20px;
+    color: #ff0000;
+}
+input[type=submit] {
+    background-color: #ff0000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+    input[type=submit]:hover {
+        background-color: #ff3333;
+    }
+
+/*.btnCss {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+    .btnCss:hover {
+        background-color: #45a049
+    }*/
+
+button #Button2 {
+    background-color: #ff0000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button #Button2:hover{
+    background-color: #ff3333;
+}

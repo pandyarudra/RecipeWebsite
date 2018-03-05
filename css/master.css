@@ -1,0 +1,136 @@
+﻿body, div, p, ul, li {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(237,237,237);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.clear {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+.clear {
+    clear: both;
+}
+/*Page*/
+.wrapper {
+    width: 950px;
+    margin: auto;
+}
+/*Master Page Content */
+.content {
+    width: 100%;
+    background-color: rgb(254, 254, 254);
+    border: 1px solid rgb(247, 139, 73);
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    min-height: 400px;
+}
+
+/*Logo*/
+.logo img {
+    width:300px;
+    height:75px;
+    float:left;
+    
+}
+
+
+/*Menu */
+
+.menu {
+    float: right;
+}
+.menu ul {
+    list-style: none;
+    padding-top: 20px;
+    
+}
+
+    .menu ul li {
+        background-color: cornflowerblue;
+        border: solid 1px white;
+        width: 120px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        float: left;
+        position: relative;
+        border-radius: 10px;
+    }
+
+.menu ul li a {
+            text-decoration: none;
+            color: rgb(255, 216, 0);
+            display: block;
+        }
+
+    .menu ul li a:hover {
+        background-color: coral;
+        color: white;
+        border-radius: 10px;
+    }
+
+.menu ul ul {
+        position: absolute;
+        display: none;
+
+
+    }
+
+.menu ul li > ul li {
+        background-color: rgb(29, 162, 156);
+        color: #edeef8;
+        border: solid 1px white;
+    }
+
+.menu ul li:hover > ul {
+    display: block;
+    border-radius: 10px;
+}
+
+.banner img {
+   width:960px;
+    
+}
+
+.item, .item-sub
+{
+    padding: 15px;
+    background:#fff;
+    margin: 5px 10px;
+}
+.item-sub
+{
+    width: 80%;
+    margin-left:15%;
+}
+.item a
+{
+    font-size:15px;
+    text-decoration:none;
+    color: #4caf50;
+}
+.item span
+{
+    font-size:15px;
+}
+.item:hover a
+{
+    text-decoration: underline;
+}
+.body_Ingredient
+{
+    padding: 15px;
+}
+.pull-right
+{
+    float: right;
+}
