@@ -48,7 +48,7 @@ public partial class RecipeDetails : System.Web.UI.Page
                 foreach (recipe_ingredients recipe11 in recipeList1)
                 {
 
-                    ri_items = "<p class='item-sub'>" + recipe11.ingredient_id + ")." + recipe11.name + " : " + recipe11.quantity + " " + recipe11.unit + "</p>";
+                    ri_items += "<p class='item-sub'>" + recipe11.ingredient_id + ")." + recipe11.name + " : " + recipe11.quantity + " " + recipe11.unit + "</p>";
                 }
                 Ingredient.InnerHtml = ri_items;                
                 
