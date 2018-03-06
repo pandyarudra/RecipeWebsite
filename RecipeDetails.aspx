@@ -24,7 +24,7 @@
                     <span runat="server" id="servings"></span>
                 </p>
                 <p class="item">
-                    <span><b>Ingredient Name:</b></span>
+                    <span><b>Ingredients:</b></span>
                     <p runat="server" id="Ingredient"></p>
                 </p>
                 <p class="item">
